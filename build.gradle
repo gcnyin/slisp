@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'application'
+}
+
+group 'com.github.rigophypheriveri'
+version '0.1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.antlr:antlr4-runtime:4.7.1'
+    compile 'org.ow2.asm:asm:5.1'
+    testCompile 'junit:junit:4.12'
+}
+
+mainClassName = 'com.github.rigophypheriveri.slisp.compiler.SlispCompiler'
+
+jar {
+    manifest {
+        attributes 'Main-Class': "$mainClassName"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
