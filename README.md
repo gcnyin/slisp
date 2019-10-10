@@ -5,7 +5,7 @@ slisp (Simple Lisp) is a dialect of lisp.
 ## Build
 
 ```bash
-$ ./graldew clean build
+$ ./gradlew clean build
 ```
 
 ## Run
